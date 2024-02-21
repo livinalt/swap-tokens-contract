@@ -10,7 +10,7 @@ contract SwapToken {
     // the other token would be the swap token
 
     // string tokenA;
-   uint256 public tokenA;
+    uint256 public tokenA;
     uint256 public tokenB;
     address public owner;
 
@@ -20,10 +20,10 @@ contract SwapToken {
     uint256 public exchangeRate = 10;
 
     constructor() {
-        owner = msg.sender;
+        owner = payable(msg.sender);
     }
 
-    function depositAmount(uint256 _amount, bool _isTokenA) external {
+    function depositAmount(uint256 _amount, bool _isTokenA) external payable {
         require(_amount > 0, "Amount must be greater than zero");
 
         if (_isTokenA) {
